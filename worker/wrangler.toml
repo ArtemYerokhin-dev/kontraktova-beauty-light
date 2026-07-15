@@ -1,0 +1,18 @@
+name = "kontraktova-beauty-api"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "kontraktova-beauty-db"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+migrations_dir = "migrations"
+
+[vars]
+# Non-secret config. CLIENT_ORIGIN is used for CORS.
+CLIENT_ORIGIN = "http://localhost:5173"
+
+# Secrets (set via `wrangler secret put <NAME>`, never commit real values):
+#   ADMIN_PASSWORD      - admin panel login password
+#   JWT_SECRET          - signing secret for the admin session cookie
+#   TELEGRAM_BOT_TOKEN  - token from BotFather
