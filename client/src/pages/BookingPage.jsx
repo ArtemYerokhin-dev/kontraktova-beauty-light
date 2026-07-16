@@ -323,9 +323,9 @@ export default function BookingPage() {
               <SummaryRow label="Ім'я" value={clientName} />
               <SummaryRow label="Телефон" value={clientPhone} />
               {comment && <SummaryRow label="Коментар" value={comment} />}
-              <div className="mt-4 flex items-center justify-between border-t border-black/10 pt-4">
+              <div className="mt-4 flex items-center justify-between gap-3 border-t border-black/10 pt-4">
                 <span className="text-black/50">Орієнтовна вартість</span>
-                <span className="text-lg font-semibold text-accent">~{service?.price} ₴</span>
+                <span className="shrink-0 whitespace-nowrap text-lg font-semibold text-accent">~{service?.price} ₴</span>
               </div>
             </div>
             <p className="mt-2 text-xs text-black/30">

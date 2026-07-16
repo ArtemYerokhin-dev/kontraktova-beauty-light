@@ -58,7 +58,7 @@ export default function ServicesAdmin() {
             <div>
               <p className="font-medium">{s.name}</p>
               <p className="text-sm text-black/40">
-                {s.duration_min} хв · {s.price} ₴
+                {s.duration_min} хв · <span className="whitespace-nowrap">{s.price} ₴</span>
                 {s.master_id ? ` · ${masters.find((m) => m.id === s.master_id)?.name || ''}` : ''}
               </p>
             </div>

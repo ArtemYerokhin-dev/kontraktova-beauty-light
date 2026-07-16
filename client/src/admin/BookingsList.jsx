@@ -84,7 +84,9 @@ export default function BookingsList() {
               </p>
               <p className="text-sm text-black/40">
                 {b.service_name} · {b.master_name} · {b.client_name} · {b.client_phone} ·{' '}
-                {b.final_price != null ? `${b.final_price} ₴` : `~${b.service_price} ₴`}
+                <span className="whitespace-nowrap">
+                  {b.final_price != null ? `${b.final_price} ₴` : `~${b.service_price} ₴`}
+                </span>
               </p>
             </div>
             <StatusBadge status={b.status} />
@@ -149,7 +151,10 @@ function BookingDetailModal({ booking, onClose, onStatus, onPrice, onDelete }) {
 
         <div className="mt-3">
           <p className="mb-1.5 text-sm text-black/50">
-            Підсумкова вартість {booking.final_price == null && <span className="text-black/30">(орієнтовно ~{booking.service_price} ₴)</span>}
+            Підсумкова вартість{' '}
+            {booking.final_price == null && (
+              <span className="whitespace-nowrap text-black/30">(орієнтовно ~{booking.service_price} ₴)</span>
+            )}
           </p>
           <div className="flex gap-2">
             <input
