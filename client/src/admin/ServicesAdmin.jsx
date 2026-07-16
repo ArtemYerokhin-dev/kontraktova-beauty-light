@@ -42,7 +42,7 @@ export default function ServicesAdmin() {
 
   return (
     <div>
-      <div className="mb-5 flex items-center justify-between">
+      <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
         <h2 className="text-lg font-semibold">Послуги</h2>
         <Button onClick={() => setEditing({ ...EMPTY })}>+ Додати послугу</Button>
       </div>
@@ -51,7 +51,7 @@ export default function ServicesAdmin() {
         {services.map((s) => (
           <div
             key={s.id}
-            className={`flex items-center justify-between rounded-xl border border-black/10 bg-surface px-4 py-3 ${
+            className={`flex flex-col gap-2 rounded-xl border border-black/10 bg-surface px-4 py-3 sm:flex-row sm:items-center sm:justify-between ${
               !s.active ? 'opacity-40' : ''
             }`}
           >
@@ -62,11 +62,11 @@ export default function ServicesAdmin() {
                 {s.master_id ? ` · ${masters.find((m) => m.id === s.master_id)?.name || ''}` : ''}
               </p>
             </div>
-            <div className="flex gap-3">
-              <button onClick={() => setEditing(s)} className="text-sm text-black/50 hover:text-ink">
+            <div className="flex shrink-0 gap-5 sm:gap-3">
+              <button onClick={() => setEditing(s)} className="-my-1.5 py-1.5 text-sm text-black/50 hover:text-ink">
                 Редагувати
               </button>
-              <button onClick={() => remove(s.id)} className="text-sm text-red-400 hover:text-red-300">
+              <button onClick={() => remove(s.id)} className="-my-1.5 py-1.5 text-sm text-red-600 hover:text-red-700">
                 Видалити
               </button>
             </div>
@@ -97,7 +97,7 @@ function ServiceFormModal({ initial, masters, onClose, onSave }) {
           e.preventDefault();
           onSave(form);
         }}
-        className="w-full max-w-md space-y-3 rounded-t-2xl border border-black/10 bg-surface p-5 sm:rounded-2xl"
+        className="w-full max-w-md space-y-3 rounded-t-2xl border border-black/10 bg-surface p-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] sm:rounded-2xl sm:pb-5"
       >
         <h3 className="text-lg font-semibold">{form.id ? 'Редагувати послугу' : 'Нова послуга'}</h3>
         <input

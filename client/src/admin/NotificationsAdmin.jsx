@@ -78,7 +78,7 @@ export default function NotificationsAdmin() {
                     {saving === row.code ? '…' : 'Зберегти'}
                   </Button>
                   {isSet && (
-                    <button onClick={() => remove(row.code)} className="text-sm text-red-400 hover:text-red-300">
+                    <button onClick={() => remove(row.code)} className="text-sm text-red-600 hover:text-red-700">
                       Прибрати
                     </button>
                   )}

@@ -108,9 +108,9 @@ export default function BookingsList() {
 function StatusBadge({ status }) {
   const colors = {
     нова: 'bg-accent/15 text-accent',
-    підтверджена: 'bg-emerald-500/15 text-emerald-400',
+    підтверджена: 'bg-emerald-500/15 text-emerald-600',
     скасована: 'bg-black/10 text-black/40',
-    виконана: 'bg-sky-500/15 text-sky-400',
+    виконана: 'bg-sky-500/15 text-sky-600',
   };
   return (
     <span className={`whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-medium ${colors[status] || ''}`}>
@@ -136,7 +136,7 @@ function BookingDetailModal({ booking, onClose, onStatus, onPrice, onDelete }) {
     <div className="fixed inset-0 z-10 flex items-end justify-center bg-black/60 sm:items-center" onClick={onClose}>
       <div
         onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-md rounded-t-2xl border border-black/10 bg-surface p-5 sm:rounded-2xl"
+        className="w-full max-w-md rounded-t-2xl border border-black/10 bg-surface p-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] sm:rounded-2xl sm:pb-5"
       >
         <h3 className="text-lg font-semibold">Запис #{booking.id}</h3>
         <div className="mt-3 space-y-1.5 text-sm">
@@ -183,7 +183,7 @@ function BookingDetailModal({ booking, onClose, onStatus, onPrice, onDelete }) {
         </div>
 
         <div className="mt-5 flex justify-between">
-          <button onClick={onDelete} className="text-sm text-red-400 duration-150 hover:text-red-300">
+          <button onClick={onDelete} className="text-sm text-red-600 duration-150 hover:text-red-700">
             Видалити запис
           </button>
           <button onClick={onClose} className="text-sm text-black/40 duration-150 hover:text-ink">

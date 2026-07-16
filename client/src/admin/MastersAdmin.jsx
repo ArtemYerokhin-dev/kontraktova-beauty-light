@@ -48,7 +48,7 @@ export default function MastersAdmin() {
 
   return (
     <div>
-      <div className="mb-5 flex items-center justify-between">
+      <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
         <h2 className="text-lg font-semibold">Майстри</h2>
         <Button onClick={() => setEditing({ ...EMPTY })}>+ Додати майстра</Button>
       </div>
@@ -57,7 +57,7 @@ export default function MastersAdmin() {
         {masters.map((m) => (
           <div
             key={m.id}
-            className={`flex items-center justify-between rounded-xl border border-black/10 bg-surface px-4 py-3 ${
+            className={`flex flex-col gap-2 rounded-xl border border-black/10 bg-surface px-4 py-3 sm:flex-row sm:items-center sm:justify-between ${
               !m.active ? 'opacity-40' : ''
             }`}
           >
@@ -71,11 +71,11 @@ export default function MastersAdmin() {
                   .join(', ')}
               </p>
             </div>
-            <div className="flex gap-3">
-              <button onClick={() => setEditing(m)} className="text-sm text-black/50 hover:text-ink">
+            <div className="flex shrink-0 gap-5 sm:gap-3">
+              <button onClick={() => setEditing(m)} className="-my-1.5 py-1.5 text-sm text-black/50 hover:text-ink">
                 Редагувати
               </button>
-              <button onClick={() => remove(m.id)} className="text-sm text-red-400 hover:text-red-300">
+              <button onClick={() => remove(m.id)} className="-my-1.5 py-1.5 text-sm text-red-600 hover:text-red-700">
                 Видалити
               </button>
             </div>
@@ -125,7 +125,7 @@ function MasterFormModal({ initial, error, onClose, onSave }) {
           e.preventDefault();
           onSave(form);
         }}
-        className="w-full max-w-md space-y-3 rounded-t-2xl border border-black/10 bg-surface p-5 sm:rounded-2xl"
+        className="w-full max-w-md space-y-3 rounded-t-2xl border border-black/10 bg-surface p-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] sm:rounded-2xl sm:pb-5"
       >
         <h3 className="text-lg font-semibold">{form.id ? 'Редагувати майстра' : 'Новий майстер'}</h3>
         <input
@@ -195,7 +195,7 @@ function MasterFormModal({ initial, error, onClose, onSave }) {
                 type="button"
                 key={day}
                 onClick={() => toggleDayOff(day)}
-                className={`h-9 w-9 rounded-lg border text-sm duration-150 ${
+                className={`h-10 w-10 rounded-lg border text-sm duration-150 ${
                   form.days_off.includes(day)
                     ? 'border-accent bg-accent/10 text-accent'
                     : 'border-black/10 text-black/50'
@@ -232,7 +232,7 @@ function MasterFormModal({ initial, error, onClose, onSave }) {
           Активний (показувати клієнтам)
         </label>
 
-        {error && <p className="text-sm text-red-400">{error}</p>}
+        {error && <p className="text-sm text-red-600">{error}</p>}
 
         <div className="flex justify-end gap-3 pt-2">
           <button type="button" onClick={onClose} className="text-sm text-black/40 hover:text-ink">

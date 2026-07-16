@@ -179,13 +179,13 @@ export default function BookingPage() {
                 <button
                   key={svc.id}
                   onClick={() => pickService(svc)}
-                  className="flex w-full items-center justify-between rounded-2xl border border-black/10 bg-surface px-5 py-4 text-left duration-150 hover:border-accent/60 hover:bg-black/[0.04]"
+                  className="flex w-full items-start justify-between gap-3 rounded-2xl border border-black/10 bg-surface px-5 py-4 text-left duration-150 hover:border-accent/60 hover:bg-black/[0.04]"
                 >
                   <span>
                     <span className="block font-medium">{svc.name}</span>
                     <span className="mt-1 block text-sm text-black/40">{svc.duration_min} хв</span>
                   </span>
-                  <span className="font-semibold text-accent">~{svc.price} ₴</span>
+                  <span className="shrink-0 whitespace-nowrap font-semibold text-accent">~{svc.price} ₴</span>
                 </button>
               ))}
               {servicesForCategory.length === 0 && (
@@ -251,7 +251,7 @@ export default function BookingPage() {
                     <button
                       key={t}
                       onClick={() => pickTime(t)}
-                      className="rounded-lg border border-black/10 bg-surface py-2.5 text-sm duration-150 hover:border-accent/60 hover:text-accent"
+                      className="rounded-lg border border-black/10 bg-surface py-3 text-sm duration-150 hover:border-accent/60 hover:text-accent"
                     >
                       {t}
                     </button>
@@ -303,7 +303,7 @@ export default function BookingPage() {
                   placeholder="Побажання чи запитання"
                 />
               </Field>
-              {error && <p className="text-sm text-red-400">{error}</p>}
+              {error && <p className="text-sm text-red-600">{error}</p>}
               <Button type="submit" className="w-full">
                 Далі
               </Button>
@@ -331,7 +331,7 @@ export default function BookingPage() {
             <p className="mt-2 text-xs text-black/30">
               Точну суму майстер підтвердить на місці — вона може відрізнятись залежно від довжини, форми тощо.
             </p>
-            {error && <p className="mt-3 text-sm text-red-400">{error}</p>}
+            {error && <p className="mt-3 text-sm text-red-600">{error}</p>}
             <Button onClick={confirmBooking} disabled={submitting} className="mt-5 w-full">
               {submitting ? 'Записуємо…' : 'Підтвердити запис'}
             </Button>

@@ -34,7 +34,7 @@ export default function Login({ onSuccess }) {
           placeholder="Пароль"
           className="input"
         />
-        {error && <p className="mt-2 text-sm text-red-400">{error}</p>}
+        {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
         <Button type="submit" disabled={loading} className="mt-4 w-full">
           {loading ? 'Вхід…' : 'Увійти'}
         </Button>

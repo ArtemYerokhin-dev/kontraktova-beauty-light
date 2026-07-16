@@ -55,7 +55,7 @@ export default function MasterPage() {
             autoFocus
             className="input"
           />
-          {loginError && <p className="mt-2 text-sm text-red-400">{loginError}</p>}
+          {loginError && <p className="mt-2 text-sm text-red-600">{loginError}</p>}
           <Button type="submit" disabled={loggingIn} className="mt-4 w-full">
             {loggingIn ? 'Вхід…' : 'Увійти'}
           </Button>
@@ -166,8 +166,8 @@ function ScheduleEditor({ master, onLogout }) {
             </div>
           </div>
 
-          {error && <p className="text-sm text-red-400">{error}</p>}
-          {saved && !error && <p className="text-sm text-emerald-400">Збережено</p>}
+          {error && <p className="text-sm text-red-600">{error}</p>}
+          {saved && !error && <p className="text-sm text-emerald-600">Збережено</p>}
 
           <Button onClick={save} disabled={saving} className="w-full">
             {saving ? 'Зберігаємо…' : 'Зберегти графік'}
